@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<!-- 
+  【文件骨架註解】
+  <!DOCTYPE html> : 宣告此文件為 HTML5 標準格式。
+  <html lang="zh-Hant"> : 指定網頁主語言為繁體中文 (zh-Hant)。
+-->
+<html lang="zh-Hant">
+<head>
+    <!-- 【網頁資訊註解】 -->
+    <!-- charset="UTF-8" : 設定網頁字元編碼為 UTF-8，避免中文出現亂碼 -->
+    <meta charset="UTF-8">
+    <!-- viewport : 針對行動裝置進行響應式排版設定，width=device-width 讓頁面寬度隨螢幕自動調整 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- description : 提供搜尋引擎 (SEO) 讀取的網頁簡短描述內容 -->
+    <meta name="description" content="高美濕地專題報導：介紹台中熱門景點高美濕地的生態特色、SWOT分析、客群需求與推薦參觀路線。">
+    <!-- author : 標示本網頁報導的作者姓名 -->
+    <meta name="author" content="莊侑軒">
+    <!-- title : 顯示於瀏覽器分頁上的標題名稱 -->
+    <title>高美濕地專題報導 - 莊侑軒</title>
+
+    <!-- 載入 Tailwind CSS 樣式庫，協助現代化網頁視覺呈現 -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- 自訂 CSS 樣式區域 -->
+    <style>
+        /* 頁首與區塊標題寶寶藍底色 (Baby Blue) */
+        .bg-baby-blue {
+            background-color: #bae6fd; /* 軟綿寶寶藍底色 */
+            color: #0369a1;           /* 深藍色文字增強對比閱讀性 */
+        }
+        
+        .bg-baby-blue-header {
+            background-color: #cbe3f7;
+            color: #0c4a6e;
+        }
+
+        /* 寶寶藍原點清單樣式 */
+        .baby-blue-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .baby-blue-list li {
+            position: relative;
+            padding-left: 1.75rem;
+            margin-bottom: 0.6rem;
+        }
+
+        .baby-blue-list li::before {
+            content: "•";
+            color: #38bdf8; /* 寶寶藍圓點 */
+            font-size: 1.6rem;
+            line-height: 1;
+            position: absolute;
+            left: 0.25rem;
+            top: -0.1rem;
+        }
+
+        /* 作業要求：純黑白線條表格，無背景底色 */
+        .bw-table {
+            width: 100%;
+            border-collapse: collapse;
+            border: 1px solid #000000;
+            background-color: transparent !important;
+        }
+
+        .bw-table th, 
+        .bw-table td {
+            border: 1px solid #000000;
+            padding: 12px 16px;
+            text-align: left;
+            background-color: transparent !important;
+            color: #000000;
+        }
+
+        .bw-table caption {
+            caption-side: top;
+            font-weight: bold;
+            text-align: left;
+            margin-bottom: 8px;
+            color: #1e293b;
+        }
+    </style>
+</head>
+<body id="top" class="bg-slate-50 text-slate-800 font-sans antialiased min-h-screen py-8 px-4 sm:px-6 lg:px-8">
+
+    <!-- 【語意化標籤】<main> 表示網頁的主要獨特性內容區域 -->
+    <main class="max-w-4xl mx-auto bg-white shadow-lg rounded-2xl overflow-hidden border border-slate-200">
+        
+        <!-- 【語意化標籤】<header> 網頁或文章頁首，包含主要標題、作者與日期資訊 -->
+        <header class="p-6 sm:p-8 border-b border-slate-100">
+            <!-- 主標題：使用 <h1> 標籤，每個頁面僅能有一個 h1 -->
+            <div class="bg-baby-blue p-4 rounded-xl mb-3 inline-block w-full">
+                <h1 class="text-2xl sm:text-3xl font-bold tracking-tight">🌊 高美濕地專題報導</h1>
+            </div>
+            
+            <!-- 小字作者與日期資訊 -->
+            <p class="text-xs sm:text-sm text-slate-500 font-medium ml-1">
+                作者：莊侑軒 &nbsp;|&nbsp; 報導日期：2026年10月14日
+            </p>
+
+            <!-- 【報導文字段落一】引言導覽 -->
+            <div class="mt-6 space-y-4 text-slate-700 leading-relaxed text-base sm:text-lg">
+                <p>
+                    歡迎來到我們的旅遊報導平台，今天要帶大家一起深入探索臺中的熱門國際級景點——高美濕地（高美野生動物保護區）！高美濕地座落於大甲溪出海口南側，擁有廣達七百多公頃的豐富潮間帶與泥灘地，是臺灣極具代表性的生態寶庫與觀光勝地。
+                </p>
+                <p>
+                    今天就跟著我們的腳步，一起看看高美濕地有什麼特別的魅力吧！我們將從基本簡介、SWOT 旅遊優劣勢分析、客群需求比較，到推薦的個人散步路線進行全方位的報導。
+                </p>
+            </div>
+        </header>
+
+        <div class="p-6 sm:p-8 space-y-10">
+
+            <!-- 【語意化標籤】<nav> 導覽區域，包含頁內跳轉目錄索引 -->
+            <!-- 【頁內連結註解】id="toc" 為目錄區域的唯一識別碼 -->
+            <nav id="toc" class="scroll-mt-6">
+                <h2 class="text-xl font-bold bg-baby-blue-header px-4 py-2.5 rounded-lg mb-4 inline-block w-full">
+                    📌 報導目錄
+                </h2>
+                <!-- 【無序清單標籤】<ul> 與 <li> 呈現目錄列表 -->
+                <!-- href="#id" 指向頁內相應章節的 id 屬性 -->
+                <ul class="baby-blue-list text-slate-700 text-base sm:text-lg pl-2">
+                    <li><a href="#intro" class="hover:underline hover:text-sky-600 transition">💾 基本簡介</a></li>
+                    <li><a href="#swot" class="hover:underline hover:text-sky-600 transition">📊 景點SWOT 分析</a></li>
+                    <li><a href="#target" class="hover:underline hover:text-sky-600 transition">👥 客群比較表</a></li>
+                    <li><a href="#route" class="hover:underline hover:text-sky-600 transition">🚶 建議散步順序（作者規劃）</a></li>
+                    <li><a href="#photo" class="hover:underline hover:text-sky-600 transition">📷 高美濕地照片</a></li>
+                    <li><a href="#video" class="hover:underline hover:text-sky-600 transition">🎤 影音報導</a></li>
+                    <li><a href="#sources" class="hover:underline hover:text-sky-600 transition">⭐ 資料來源</a></li>
+                </ul>
+            </nav>
+
+            <!-- 【語意化標籤】<aside> 側邊欄/補充資訊區塊，放置與主內容相關的延伸叮嚀與潮汐提醒 -->
+            <aside class="bg-amber-50 border-l-4 border-amber-400 p-4 rounded-xl text-sm text-amber-900 shadow-sm">
+                <h3 class="font-bold mb-1 text-base flex items-center gap-1">
+                    💡 旅遊小貼士（補充資訊）
+                </h3>
+                <p class="leading-relaxed">
+                    1. 潮間帶木棧道開放時間受每日潮汐影響，前往前請務必先查詢中央氣象署潮汐預報。<br>
+                    2. 保護區內禁止捕捉生物與隨意拋棄垃圾，一同守護雲林莞草與野生動物棲地。
+                </p>
+            </aside>
+
+            <!-- 【語意化標籤】<article> 獨立完整的內容文章區塊 -->
+            <article class="space-y-10">
+
+                <!-- 💾 1. 基本簡介區塊 -->
+                <!-- id="intro" 供目錄錨點連結跳轉 -->
+                <section id="intro" class="scroll-mt-6">
+                    <h2 class="text-xl font-bold bg-baby-blue-header px-4 py-2.5 rounded-lg mb-4 inline-block w-full">
+                        💾 基本簡介
+                    </h2>
+                    
+                    <!-- 【報導文字段落二】景點歷史背景與生態特色說明 -->
+                    <div class="mb-4 text-slate-700 leading-relaxed text-base">
+                        <p>
+                            高美濕地前身為高美海水浴場，隨著臺中港築港工程導致泥沙淤積，逐漸轉化為兼具泥質與沙質的潮間帶濕地。2004 年由臺中市政府公告設立為「高美野生動物保護區」，擁有豐富的雲林莞草區及多樣化的底棲生物（如招潮蟹、彈塗魚），每年秋冬更有大量候鳥在此避寒過境，是極為珍貴的生態教育場所。
+                        </p>
+                    </div>
+
+                    <!-- 【無序清單】<ul> 呈現基本特色條列資訊 -->
+                    <ul class="baby-blue-list text-slate-700 text-base sm:text-lg space-y-2">
+                        <li>📍 <strong>地點：</strong>臺中市清水區，大甲溪出海口南側</li>
+                        <li>📅 <strong>成立時間：</strong>2004年公告為高美野生動物保護區</li>
+                        <li>📐 <strong>規模：</strong>約700多公頃（含保護區核心與緩衝區）</li>
+                        <li>🌅 <strong>主要特色：</strong>絕美夕陽、沿海風車群、棲地木棧道、豐富潮間帶生態</li>
+                    </ul>
+
+                    <!-- 【回到頁首連結】href="#top" 可直接跳回網頁最上方 -->
+                    <div class="text-right mt-3">
+                        <a href="#top" class="text-xs text-sky-600 hover:underline">⬆ 回到頁首</a>
+                    </div>
+                </section>
+
+                <!-- 📊 2. 景點SWOT 分析 -->
+                <section id="swot" class="scroll-mt-6">
+                    <h2 class="text-xl font-bold bg-baby-blue-header px-4 py-2.5 rounded-lg mb-4 inline-block w-full">
+                        📊 景點SWOT 分析
+                    </h2>
+                    
+                    <p class="text-slate-700 mb-3 text-base">
+                        針對高美濕地目前在觀光發展與環境保育上的現況，進行 SWOT 現狀評估分析如下：
+                    </p>
+
+                    <!-- 【表格標籤註解】<table> 呈現 SWOT 分析矩陣，套用純黑白線條格式 -->
+                    <div class="overflow-x-auto my-2">
+                        <table class="bw-table">
+                            <!-- <caption> : 表格標題說明 -->
+                            <caption>表 1：高美濕地觀光發展 SWOT 分析表</caption>
+                            <!-- <thead> : 表格標題列區塊 -->
+                            <thead>
+                                <tr>
+                                    <!-- <th> : 表頭單元格 -->
+                                    <th class="w-1/4 font-bold">SWOT 構面</th>
+                                    <th class="font-bold">內容說明與影響分析</th>
+                                </tr>
+                            </thead>
+                            <!-- <tbody> : 表格主要數據內容區塊 -->
+                            <tbody>
+                                <tr>
+                                    <!-- <td> : 一般資料單元格 -->
+                                    <td class="font-bold">S 優勢 (Strengths)</td>
+                                    <td>景觀辨識度極高（夕陽與風車）、生態資源豐富、國內外知名度高。</td>
+                                </tr>
+                                <tr>
+                                    <td class="font-bold">W 劣勢 (Weaknesses)</td>
+                                    <td>極受天候與潮汐影響；假日人潮壅塞，且大眾運輸班次較為有限。</td>
+                                </tr>
+                                <tr>
+                                    <td class="font-bold">O 機會 (Opportunities)</td>
+                                    <td>短影音自媒體行銷、推廣深度生態旅遊與環境教育、串聯海線觀光廊道。</td>
+                                </tr>
+                                <tr>
+                                    <td class="font-bold">T 威脅 (Threats)</td>
+                                    <td>過度觀光可能造成生態環境破壞，以及極端氣候對潮間帶棲地之影響。</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="text-right mt-3">
+                        <a href="#top" class="text-xs text-sky-600 hover:underline">⬆ 回到頁首</a>
+                    </div>
+                </section>
+
+                <!-- 👥 3. 客群比較表 -->
+                <section id="target" class="scroll-mt-6">
+                    <h2 class="text-xl font-bold bg-baby-blue-header px-4 py-2.5 rounded-lg mb-4 inline-block w-full">
+                        👥 客群比較表
+                    </h2>
+
+                    <!-- 【表格標籤】符合作業規範：至少三欄、三筆資料，包含 caption, thead, tbody, tr, th, td -->
+                    <div class="overflow-x-auto my-2">
+                        <table class="bw-table">
+                            <caption>表 2：高美濕地不同目標客群需求與推薦體驗比較表</caption>
+                            <thead>
+                                <tr>
+                                    <th class="w-1/4 font-bold">目標客群</th>
+                                    <th class="w-2/5 font-bold">主要需求</th>
+                                    <th class="font-bold">推薦體驗活動</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="font-bold">年輕族群</td>
+                                    <td>拍照、社群打卡、錄製短影音</td>
+                                    <td>木棧道末端天空之鏡拍照、夕陽風車剪影</td>
+                                </tr>
+                                <tr>
+                                    <td class="font-bold">情侶約會</td>
+                                    <td>觀賞夕陽浪漫氛圍、景觀漫步</td>
+                                    <td>黃昏時段木棧道散步、欣賞海邊日落</td>
+                                </tr>
+                                <tr>
+                                    <td class="font-bold">親子家庭</td>
+                                    <td>生態體驗、自然科普戶外教育</td>
+                                    <td>觀察招潮蟹與彈塗魚、遊客中心互動體驗</td>
+                                </tr>
+                                <tr>
+                                    <td class="font-bold">攝影／生態愛好者</td>
+                                    <td>專業攝影取景、賞鳥、生態觀察</td>
+                                    <td>攜帶長焦鏡頭賞鳥、拍攝大潮退潮光影</td>
+                                </tr>
+                                <tr>
+                                    <td class="font-bold">國內外遊客</td>
+                                    <td>特色地標觀光、地方美食嘗鮮</td>
+                                    <td>順遊清水老街吃米糕、品嚐海線在地小吃</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="text-right mt-3">
+                        <a href="#top" class="text-xs text-sky-600 hover:underline">⬆ 回到頁首</a>
+                    </div>
+                </section>
+
+                <!-- 🚶 4. 建議散步順序（作者規劃） -->
+                <section id="route" class="scroll-mt-6">
+                    <h2 class="text-xl font-bold bg-baby-blue-header px-4 py-2.5 rounded-lg mb-4 inline-block w-full">
+                        🚶 建議散步順序（作者莊侑軒規劃）
+                    </h2>
+                    
+                    <!-- 【報導文字段落三】個人路線規劃說明與安全提醒 -->
+                    <p class="text-slate-700 mb-4 text-base leading-relaxed">
+                        為了讓第一次到訪的旅客能有最佳體驗，作者莊侑軒特別根據潮汐規律與日落時間，規劃了一套最順暢的半日散步流程。請隨時注意現場潮汐預報，安全第一！
+                    </p>
+
+                    <!-- 【有序清單標籤】<ol> 與 <li> 呈現具先後順序的散步步驟 -->
+                    <ol class="list-decimal list-inside text-slate-700 text-base sm:text-lg space-y-3 font-medium pl-2">
+                        <li class="pl-2"><span class="font-bold">第一站：遊客中心與景觀橋</span> — 先至高美遊客中心了解生態背景，並從景觀橋遠眺風車巨群。</li>
+                        <li class="pl-2"><span class="font-bold">第二站：木棧道生態觀察</span> — 於開放時間沿著木棧道前行，近距離觀察兩側泥灘地的雲林莞草與招潮蟹。</li>
+                        <li class="pl-2"><span class="font-bold">第三站：潮間帶體驗與夕陽賞景</span> — 走到木棧道盡頭永續利用區，體驗赤腳踏浪並等待浪漫的夕陽落日景象。</li>
+                    </ol>
+
+                    <div class="text-right mt-3">
+                        <a href="#top" class="text-xs text-sky-600 hover:underline">⬆ 回到頁首</a>
+                    </div>
+                </section>
+
+                <!-- 📷 5. 高美濕地照片 -->
+                <section id="photo" class="scroll-mt-6">
+                    <h2 class="text-xl font-bold bg-baby-blue-header px-4 py-2.5 rounded-lg mb-4 inline-block w-full">
+                        📷 高美濕地照片
+                    </h2>
+                    
+                    <!-- 【語意化標籤】<figure> 包裹圖片與圖說 -->
+                    <figure class="rounded-xl overflow-hidden border border-slate-200 shadow-sm my-3 bg-slate-50 p-3">
+                        <!-- 
+                          【圖片標籤與屬性註解】
+                          src="image.png" : 指定圖片的檔案路徑或網址
+                          alt="..." : 替代文字，當圖片無法載入時顯示，亦協助無視障者螢幕閱讀器解析圖片內容
+                          class="..." : 設定適當顯示尺寸與響應式寬度
+                        -->
+                        <img 
+                            src="123.jpg" 
+                            alt="高美濕地黃昏時刻，夕陽餘暉映照潮間帶水面與一排風力發電機（風車）之景色" 
+                            class="w-full h-auto object-cover rounded-lg block"
+                            onerror="this.src='123.jpg';"
+                            >
+                        <!-- 【語意化標籤】<figcapt標示圖片圖說與來源資訊 -->
+                        <figcaption class="mt-2 text-sm text-slate-600 text-center font-medium">
+                            圖 1：高美濕地經典夕陽與風車倒影景觀（來源：莊侑軒提供 / Google Image Share）
+                        </figcaption>
+                    </figure>
+
+                    <div class="text-right mt-3">
+                        <a href="#top" class="text-xs text-sky-600 hover:underline">⬆ 回到頁首</a>
+                    </div>
+                </section>
+
+                <!-- 🎤 6. 影音報導 -->
+                <section id="video" class="scroll-mt-6">
+                    <h2 class="text-xl font-bold bg-baby-blue-header px-4 py-2.5 rounded-lg mb-4 inline-block w-full">
+                        🎤 影音報導
+                    </h2>
+                    <p class="text-slate-700 mb-4 text-base sm:text-lg">
+                        透過下方影片認識高美濕地，再比較影片畫面與本文介紹的景點：
+                    </p>
+                    
+                    <!-- 
+                      【影片標籤與屬性註解】
+                      <iframe> : 嵌入外部網頁/影片元件
+                      src : 嵌入之 YouTube 影片播放網址
+                      title : 提供無障礙讀屏器辨識該框架內容之名稱（必要屬性）
+                      allowfullscreen : 允許使用者點擊切換為全螢幕播放
+                    -->
+                    <div class="aspect-video w-full rounded-xl overflow-hidden border border-slate-200 shadow-sm mb-3">
+                        <iframe 
+                            class="w-full h-full" 
+                            src="https://www.youtube.com/embed/BkGC0UZeiqs?si=Gm7sHdJWDxTNz4N5" 
+                            title="高美濕地生態與景色介紹影音報導" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+
+                    <!-- 附上一般影片文字連結 -->
+                    <p class="text-sm text-slate-600">
+                        🔗 若無法直接播放，請直接點擊一般影片連結：
+                        <a href="https://youtu.be/BkGC0UZeiqs?si=Ske_LDENykZGMjVt" target="_blank" rel="noopener noreferrer" class="text-sky-600 underline hover:text-sky-800 break-all">
+                            https://youtu.be/BkGC0UZeiqs?si=Ske_LDENykZGMjVt
+                        </a>
+                    </p>
+
+                    <div class="text-right mt-3">
+                        <a href="#top" class="text-xs text-sky-600 hover:underline">⬆ 回到頁首</a>
+                    </div>
+                </section>
+
+                <!-- ⭐ 7. 資料來源 -->
+                <section id="sources" class="scroll-mt-6 pt-4">
+                    <h2 class="text-xl font-bold bg-baby-blue-header px-4 py-2.5 rounded-lg mb-4 inline-block w-full">
+                        ⭐ 資料來源
+                    </h2>
+                    <!-- 無序清單清楚標示參考來源 -->
+                    <ul class="baby-blue-list text-slate-700 text-sm sm:text-base break-all space-y-2">
+                        <li>
+                            <strong>影音來源：</strong>
+                            <a href="https://youtu.be/BkGC0UZeiqs?si=Ske_LDENykZGMjVt" target="_blank" rel="noopener noreferrer" class="text-sky-600 underline hover:text-sky-800">
+                                https://youtu.be/BkGC0UZeiqs?si=Ske_LDENykZGMjVt
+                            </a>
+                        </li>
+                        <li>
+                            <strong>圖片來源：</strong>
+                            <a href="https://share.google/images/Prcc5iaVdCtb3NhxL" target="_blank" rel="noopener noreferrer" class="text-sky-600 underline hover:text-sky-800">
+                                https://share.google/images/Prcc5iaVdCtb3NhxL
+                            </a>
+                        </li>
+                        <li>
+                            <strong>內容整理：</strong>Google AI 協作編輯整理
+                        </li>
+                    </ul>
+
+                    <div class="text-right mt-3">
+                        <a href="#top" class="text-xs text-sky-600 hover:underline">⬆ 回到頁首</a>
+                    </div>
+                </section>
+             </article>
+        </div>
+
+        <!-- 【語意化標籤】<footer> 頁尾標籤，包含版權宣告與作者名稱 -->
+        <footer class="bg-slate-100 p-6 text-center text-xs text-slate-500 border-t border-slate-200">
+            <p>© 2026 高美濕地專題報導 | 作者：莊侑軒</p>
+        </footer>
+
+    </main>
+
+</body>
+</html>
